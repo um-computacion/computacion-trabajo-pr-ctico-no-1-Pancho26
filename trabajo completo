@@ -1,0 +1,36 @@
+def decimal_a_romano(numero):
+    valores = [
+        (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'),
+        (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')
+    ]
+    resultado = ""
+    for valor, simbolo in valores:
+        while numero >= valor:
+            resultado += simbolo
+            numero -= valor
+    return resultado
+
+import unittest
+
+class TestDecimalARomano(unittest.TestCase):
+    def test_conversion(self):
+        self.assertEqual(decimal_a_romano(1), 'I')  
+        self.assertEqual(decimal_a_romano(5), 'V')
+        self.assertEqual(decimal_a_romano(10), 'X')
+        
+
+def test_conversion1(self):
+        self.assertEqual(decimal_a_romano(4), "IV")
+        self.assertEqual(decimal_a_romano(9), "IX")
+        self.assertEqual(decimal_a_romano(40), "XL")
+        self.assertEqual(decimal_a_romano(90), "XC")
+
+def test_conversion2(self):
+        self.assertEqual(decimal_a_romano(49), "XLIX")
+        self.assertEqual(decimal_a_romano(99), "XCIX")
+        self.assertEqual(decimal_a_romano(499), "CDXCIX")
+        self.assertEqual(decimal_a_romano(999), "CMXCIX")
+        self.assertEqual(decimal_a_romano(3999), "MMMCMXCIX")
+
+if __name__ == '__main__':
+    unittest.main()
